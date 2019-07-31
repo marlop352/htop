@@ -46,6 +46,9 @@ darwin*)
 solaris*)
    my_htop_platform=solaris
    ;;
+cygwin*)
+   my_htop_platform=cygwin
+   ;;
 *)
    my_htop_platform=unsupported
    ;;
@@ -319,6 +322,7 @@ AM_CONDITIONAL([HTOP_OPENBSD], [test "$my_htop_platform" = openbsd])
 AM_CONDITIONAL([HTOP_DARWIN], [test "$my_htop_platform" = darwin])
 AM_CONDITIONAL([HTOP_SOLARIS], [test "$my_htop_platform" = solaris])
 AM_CONDITIONAL([HTOP_UNSUPPORTED], [test "$my_htop_platform" = unsupported])
+AM_CONDITIONAL([HTOP_CYGWIN], [test "$my_htop_platform" = cygwin])
 AC_SUBST(my_htop_platform)
 AC_CONFIG_FILES([Makefile htop.1])
 AC_OUTPUT
@@ -333,6 +337,18 @@ then
    echo "which shows no processes, using the files from the unsupported/"
    echo "directory. This is meant to be a skeleton, to be used as a"
    echo "starting point if you are porting htop to a new platform."
+   echo "****************************************************************"
+   echo ""
+fi
+
+
+if test "$my_htop_platform" = "cygwin"
+then
+   echo ""
+   echo "****************************************************************"
+   echo "WARNING! This platform is not currently supported by htop."
+   echo ""
+   echo "its being worked on by marlop352"
    echo "****************************************************************"
    echo ""
 fi

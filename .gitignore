@@ -40,3 +40,5 @@ ltmain.sh
 m4/
 missing
 stamp-h1
+.idea/
+htop.exe.stackdump

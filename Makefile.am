@@ -178,6 +178,27 @@ unsupported/UnsupportedCRT.c unsupported/Battery.c
 myhtopplatheaders = $(unsupported_platform_headers)
 endif
 
+# Cygwin
+# -----
+
+cygwin_platform_headers = \
+	cygwin/Platform.h \
+	cygwin/IOPriorityPanel.h \
+	cygwin/IOPriority.h \
+	cygwin/CygwinProcess.h \
+	cygwin/CygwinProcessList.h \
+	cygwin/CygwinCRT.h \
+	cygwin/Battery.h
+
+all_platform_headers += $(cygwin_platform_headers)
+
+if HTOP_CYGWIN
+myhtopplatsources = cygwin/Platform.c cygwin/IOPriorityPanel.c cygwin/IOPriority.c \
+cygwin/CygwinProcess.c cygwin/CygwinProcessList.c cygwin/CygwinCRT.c cygwin/Battery.c
+
+myhtopplatheaders = $(cygwin_platform_headers)
+endif
+
 # ----
 
 SUFFIXES = .h
